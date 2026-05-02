@@ -35,8 +35,4 @@ RestartSec=10
 WantedBy=default.target
 EOF
 
-systemctl --user daemon-reload
-systemctl --user enable xmrig
-systemctl --user restart xmrig
-
 echo "Done. Running at 15% (1 Thread) consistently. No more yoyo."
